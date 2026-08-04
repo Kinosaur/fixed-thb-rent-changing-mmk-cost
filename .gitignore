@@ -1,0 +1,25 @@
+# Private source evidence and working datasets — never publish these.
+source_pdfs/
+extracted_data/*.csv
+workbook/*.xlsx
+scripts/extract_receipts.py
+extraction_log.md
+
+# Private market-listing captures and exchange-rate evidence.
+data_private/
+data_templates/*.filled.csv
+screenshots_mmp_2023-now/
+# Keep source-derived exchange-rate values local until source-use guidance is received.
+data_public/myanmar_market_price_monthly_summary.csv
+
+# Python, Jupyter, and operating-system artifacts.
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store
+
+# Local exports and temporary inspection files.
+*.inspect.ndjson
+*.tmp

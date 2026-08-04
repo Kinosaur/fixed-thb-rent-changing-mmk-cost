@@ -1,0 +1,2 @@
+observation_date,observation_time_bangkok,buy_mmk_per_thb,sell_mmk_per_thb,source_file,source_app,timezone,observation_status,notes
+YYYY-MM-DD,HH:MM,,,,Myanmar Market Price,Asia/Bangkok,needs_review,Use a dated Changes History card; do not use the Latest Price panel for historical observations.

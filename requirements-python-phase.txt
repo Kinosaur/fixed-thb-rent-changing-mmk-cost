@@ -1,0 +1,6 @@
+# Install only when starting the Python / pandas phase.
+pandas
+jupyterlab
+matplotlib
+seaborn
+duckdb
