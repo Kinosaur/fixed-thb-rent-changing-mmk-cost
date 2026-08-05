@@ -6,7 +6,7 @@ Personal housing-cost analytics project for a Bangkok tenant. Exact property det
 
 This project is evolving into a public-safe data-analytics and data-science portfolio case study: **Fixed Contract, Floating Currency: Housing-Cost Exposure for a Myanmar Tenant in Bangkok**.
 
-The future analysis will compare the regular 6,500 THB contract rent with comparable new-tenant **asking** rents and express selected housing costs in Myanmar kyat using documented exchange-rate scenarios. See [PROJECT_TRACKER.md](PROJECT_TRACKER.md) for the learning path and [docs/metric_definitions.md](docs/metric_definitions.md) for the definitions that prevent misleading comparisons.
+The local analysis compares the regular 6,500 THB contract rent with a user-approved, manager-reported same-room **asking-rent scenario** and expresses selected housing costs in Myanmar kyat using documented exchange-rate scenarios. It does not present that scenario as actual signed-market-rent history. See [PROJECT_TRACKER.md](PROJECT_TRACKER.md) for the learning path and [docs/metric_definitions.md](docs/metric_definitions.md) for the definitions that prevent misleading comparisons.
 
 ### Public versus private files
 
@@ -42,6 +42,7 @@ The supplied [Myanmar Market Price](https://www.myanmarmarketprice.com/) screens
 - `document_number` is text, retaining its leading zeros. It is a repeated printed field, not assumed to be a unique receipt ID.
 - Source-backed records use `Extracted`, `Verified`, `Needs review`, or `Missing source` as `data_status` values.
 - Validation is limited to values printed within the same receipt.
+- The manager-rent comparison is a private, user-approved scenario: 6,500 THB in 2023; 7,000 THB from 2024 through March 2026; and a 6,000 THB promotion from April 2026 onward. It is not an observed monthly listing or signed-contract series.
 
 ## Calculated validation columns
 

@@ -4,15 +4,15 @@
 
 The printed monthly room-rent charge. The normal baseline is 6,500 THB from `2023-02` onward. The `2023-01` receipt is retained as printed because its room rent is 4,983 THB and should not be silently replaced.
 
-## Comparable new-tenant asking rent
+## Same-room new-tenant asking-rent scenario
 
-The median `listed_rent_thb` among listings marked `Comparable` for the selected market snapshot. A listing should ideally match the building, room type, size, furnishing level, and contract term. This metric represents an advertised asking price, not a completed lease, unless a signed rent is independently documented.
+The user-approved scenario applies manager-reported prices for the same room to each billing month: 6,500 THB for 2023, 7,000 THB for 2024–March 2026, and 6,000 THB from April 2026 onward during the reported promotion. It is not a series of independently observed monthly listings or signed contracts. It must be labelled **manager-reported asking-rent scenario** in every chart and conclusion.
 
-## Contract-rent saving
+## Contract price difference
 
-`comparable_asking_rent_median_thb - contract_rent_thb`
+`new_tenant_asking_rent_thb - regular_contract_rent_thb`
 
-A positive result means the comparable new-tenant asking-rent median is above the contract rent.
+A positive result means the scenario asking price is above the contract rent (contract protection). A negative result means the scenario promotional price is below the fixed contract rent.
 
 ## Total housing cost
 

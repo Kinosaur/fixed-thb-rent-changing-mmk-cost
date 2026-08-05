@@ -25,8 +25,8 @@ Build a compact, Mac-friendly **data-analyst** portfolio project. It is not a da
 | Phase | Outcome | Status |
 |---|---|---|
 | 0. Trusted data | Receipt and FX evidence, definitions, privacy rules | Complete |
-| 1. SQL | Four clean queries that answer real housing-cost questions | In progress |
-| 2. Tableau | One public-safe, readable interactive story | Ready after Phase 1 |
+| 1. SQL | Four clean queries that answer real housing-cost questions | Complete |
+| 2. Tableau | One public-safe, readable interactive story | Next |
 | 3. Python/pandas | Reproduce the SQL results and one chart in code | Later |
 | 4. Portfolio/interview | GitHub case study and a two-minute explanation | Later |
 
@@ -38,9 +38,19 @@ See [the Mac-first learning plan](docs/mac-analytics-learning-plan.md) for the e
 - [x] 87 dated Myanmar Market Price screenshot observations summarized into 44 monthly values.
 - [x] User-confirmed conversion scenario: use the monthly median `Sell` rate for MMK-to-THB cost.
 - [x] First SQL query: fixed contract rent expressed in MMK.
+- [x] Second SQL query: monthly utility cost and utility share in THB.
+- [x] Third SQL query: contract protection under the user-approved manager-rent scenario, in THB and MMK.
+- [x] Fourth SQL query: month-over-month total-cost change and a three-month utility average.
 - [x] First private Excel chart: monthly median Sell rate.
-- [ ] Comparable new-tenant asking rent from manager/listings.
+- [x] User-approved manager-reported same-room asking-rent scenario: 6,500 THB in 2023; 7,000 THB in 2024 through March 2026; 6,000 THB from April 2026 onward during the reported promotion. It is a scenario, not actual market-rent history.
 - [ ] Permission or guidance from Myanmar Market Price before publishing any chart based on its rates.
+
+## Latest quality checkpoint — 2026-08-05
+
+- [x] 43 receipt rows cover every expected billing month, have no duplicate billing months, and reconcile on all within-receipt calculations.
+- [x] The receipt workbook has no formula errors and no open within-receipt review items.
+- [x] 87 FX screenshot observations pass required-field, date, positive-rate, Buy/Sell, and unique-source-file checks.
+- [ ] Cross-receipt meter readings differ at four electricity transitions and one water transition. The printed values remain preserved; add explicit meter-continuity statuses in the next workbook refresh rather than changing readings.
 
 ## Data rules that must not change
 

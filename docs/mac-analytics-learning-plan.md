@@ -35,16 +35,16 @@ This is a personal portfolio project for entry-level data-analyst roles in Thail
 
 ## Phase 1: SQL — four useful queries
 
-**Goal:** answer four housing-cost questions in SQL before opening Tableau.
+**Goal:** answer four housing-cost questions in SQL before opening Tableau. Complete.
 
 **Demo/validation:** each query runs in DuckDB and uses only `data_public/` CSVs.
 
 1. **Fixed contract cost in MMK** — already complete in `sql/01_fixed_contract_sell_baseline.sql`.
 2. **Monthly utilities** — calculate `total_housing_cost_thb - room_rent_thb` and its percentage of the total.
-3. **Month-over-month change** — show whether the full housing cost in THB rose or fell from the previous month.
-4. **Three-month rolling average** — smooth utility cost only, not the FX rate or market rent.
+3. **Contract-protection scenario** — compare the fixed 6,500 THB rent with the user-approved, manager-reported same-room asking-rent scenario in THB and MMK.
+4. **Monthly movement and rolling average** — show whether full housing cost rose or fell from the previous month, then smooth utility cost only.
 
-Stop after these four. They demonstrate joins, calculations, `LAG`, and window functions.
+Stop after these four. They demonstrate joins, calculations, `LAG`, and window functions. Next, move to Tableau.
 
 ## Phase 2: Tableau — one story, not a dashboard collection
 
@@ -55,7 +55,7 @@ Stop after these four. They demonstrate joins, calculations, `LAG`, and window f
 1. Rebuild the monthly MMP Sell-rate trend from `data_public/myanmar_market_price_monthly_summary.csv`.
 2. Build the fixed 6,500 THB rent in MMK from the SQL output.
 3. Build total housing cost in MMK versus rent-only MMK.
-4. Add the comparable asking-rent chart only after manager/listing evidence arrives.
+4. Add the manager-reported same-room asking-rent scenario as a clearly labelled step line.
 
 Use Tableau Public as a local learning tool first. Publish only after Myanmar Market Price responds or you choose a chart that contains no MMP-derived values.
 

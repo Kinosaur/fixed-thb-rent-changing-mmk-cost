@@ -2,7 +2,7 @@
 
 ## What can be visualized now
 
-The receipt data and the Myanmar Market Price screenshot sample are sufficient for three honest charts. They answer how the same fixed Thai-baht contract changed in Myanmar-kyat terms. They do **not** answer what a new tenant would pay yet; that needs comparable asking-rent evidence.
+The receipt data, Myanmar Market Price screenshot sample, and user-approved manager-rent scenario are sufficient for five honest charts. They answer how the same fixed Thai-baht contract changed in Myanmar-kyat terms and compare it with a manager-reported same-room asking-rent scenario.
 
 ### Chart 1 — THB/MMK Sell rate over time
 
@@ -36,16 +36,21 @@ Add this as a subtitle or footnote to every FX chart:
 
 Also include `fx_screenshot_count` in an adjacent table or chart tooltip. A count of 1 means only one screenshot informed that month's median; it does not mean the rate is wrong.
 
-## Do not do these yet
+## Manager-rent scenario rules
 
-- Do not draw a line claiming new-tenant rent increased over time until dated comparable listings or manager quotes exist.
+- Use a step line, not a smooth trend line: 6,500 THB in 2023; 7,000 THB from 2024 through March 2026; 6,000 THB from April 2026 onward.
+- Label it **Manager-reported same-room asking-rent scenario**.
+- Do not call it actual market rent, an observed monthly listing series, or a signed-contract series.
+
+## Do not do these
+
 - Do not put THB and MMK on the same numeric axis; they are different units.
 - Do not use the app's top Latest Price as a historical observation.
 - Do not use a smoothed or forecast rate.
 
-## When manager/listing evidence arrives
+## Manager-rent comparison charts
 
-Add Chart 4: 6,500 THB contract rent versus comparable new-tenant asking-rent median in THB. Then add Chart 5: contract-rent saving in MMK using the same monthly median Sell-rate method. Label it **asking-rent scenario**, not actual signed market rent.
+Add Chart 4: 6,500 THB contract rent versus the manager-reported same-room asking-rent scenario in THB. Then add Chart 5: contract price difference in MMK using the same monthly median Sell-rate method. Label it **manager-reported asking-rent scenario**, not actual signed market rent.
 
 ## Publication boundary
 
