@@ -1,7 +1,7 @@
 # Public Portfolio Data
 
-`monthly_housing_costs_public.csv` is a derived, public-safe monthly summary. It intentionally excludes receipt images, names, room number, document number, source filenames, source pages, and notes.
+`monthly_housing_costs_public.csv` is an anonymized monthly housing-cost summary. It excludes receipt images, names, room number, document number, source filenames, source pages, and notes.
 
-Run `analytics/build_public_portfolio_data.py` locally after updating the private master dataset. Review the output before publishing.
+The source-level THB/MMK screenshot table and its monthly summary stay local. The live dashboard uses a documented monthly-median `Sell`-rate scenario and credits [Myanmar Market Price](https://www.myanmarmarketprice.com/); raw observations and screenshots are not part of this repository.
 
-The locally generated `myanmar_market_price_monthly_summary.csv` is intentionally excluded from this first GitHub milestone while source-use guidance is pending. Its method is documented and credits [Myanmar Market Price](https://www.myanmarmarketprice.com/) in [the methodology](../docs/myanmar_market_price_methodology.md).
+Run `analytics/build_public_portfolio_data.py` locally after updating the private master dataset, then review the resulting public aggregate before sharing.

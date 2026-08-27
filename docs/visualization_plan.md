@@ -1,57 +1,20 @@
-# Visualization Plan
+# Visualization Plan — Completed Dashboard
 
-## What can be visualized now
+The public Tableau dashboard is live: [Fixed THB Rent, Changing MMK Cost](https://public.tableau.com/views/FixedTHBRentChangingMMKCost20232026/Dashboard1).
 
-The receipt data, Myanmar Market Price screenshot sample, and user-approved manager-rent scenario are sufficient for five honest charts. They answer how the same fixed Thai-baht contract changed in Myanmar-kyat terms and compare it with a manager-reported same-room asking-rent scenario.
+It contains three connected views:
 
-### Chart 1 — THB/MMK Sell rate over time
+1. **Monthly cost of fixed 6,500 THB rent (MMK)** — shows the MMK cost of the unchanged rent using the monthly median `Sell` rate.
+2. **What made up my monthly housing bill (THB)** — shows room rent, electricity, water, internet, and other charges as monthly stacked bars.
+3. **My fixed contract vs new-tenant asking rent (THB)** — compares the fixed contract with the manager-reported same-room asking-rent scenario.
 
-- **Chart type:** line chart with monthly points.
-- **X-axis:** `observation_month`.
-- **Y-axis:** `sell_mmk_per_thb_median` (MMK per 1 THB).
-- **Source file:** `data_public/myanmar_market_price_monthly_summary.csv`.
-- **Purpose:** show the monthly median rate used for the user's MMK-to-THB conversion.
+## Interpretation rules
 
-### Chart 2 — Fixed 6,500 THB rent expressed in MMK
-
-- **Chart type:** line chart with monthly points.
-- **X-axis:** `billing_month`.
-- **Y-axis:** `regular_contract_rent_mmk_sell`.
-- **Source:** output of `sql/01_fixed_contract_sell_baseline.sql`.
-- **Purpose:** show how the MMK cost of the unchanged 6,500 THB rent changed with the Sell rate.
-
-### Chart 3 — Rent-only versus total monthly housing cost in MMK
-
-- **Chart type:** two-line chart.
-- **X-axis:** `billing_month`.
-- **Y-axis:** MMK.
-- **Series:** `regular_contract_rent_mmk_sell` and `total_housing_cost_mmk_sell`.
-- **Purpose:** separate currency exposure from utilities and other receipt charges.
-
-## Required chart note
-
-Add this as a subtitle or footnote to every FX chart:
-
-> Source: Myanmar Market Price. Values were manually transcribed from user-supplied dated app screenshots and summarized as the median of available observations in each month. Sell rate used for the user's MMK-to-THB cost scenario. Not an official or complete daily-rate series.
-
-Also include `fx_screenshot_count` in an adjacent table or chart tooltip. A count of 1 means only one screenshot informed that month's median; it does not mean the rate is wrong.
-
-## Manager-rent scenario rules
-
-- Use a step line, not a smooth trend line: 6,500 THB in 2023; 7,000 THB from 2024 through March 2026; 6,000 THB from April 2026 onward.
-- Label it **Manager-reported same-room asking-rent scenario**.
-- Do not call it actual market rent, an observed monthly listing series, or a signed-contract series.
-
-## Do not do these
-
-- Do not put THB and MMK on the same numeric axis; they are different units.
-- Do not use the app's top Latest Price as a historical observation.
-- Do not use a smoothed or forecast rate.
-
-## Manager-rent comparison charts
-
-Add Chart 4: 6,500 THB contract rent versus the manager-reported same-room asking-rent scenario in THB. Then add Chart 5: contract price difference in MMK using the same monthly median Sell-rate method. Label it **manager-reported asking-rent scenario**, not actual signed market rent.
+- The MMK series is a personal scenario based on the median of available dated `Sell`-rate screenshots in each month. It is not an official daily-rate series.
+- The manager-reported asking-rent scenario is not signed market-rent history.
+- The partial January 2023 billing period is excluded from full-month comparisons.
+- Do not combine THB and MMK values on one numeric axis.
 
 ## Publication boundary
 
-Keep screenshots, raw observations, and personal receipt records private. Before publishing a GitHub chart that uses the Myanmar Market Price sample, send a short permission/courtesy email and follow any requested attribution or use conditions.
+Keep receipt PDFs, screenshots, raw FX observations, room information, and Tableau packages out of Git. The dashboard credits [Myanmar Market Price](https://www.myanmarmarketprice.com/) for the supplied rate screenshots; no response has been received to the courtesy email, so no raw or derived FX table is published here.

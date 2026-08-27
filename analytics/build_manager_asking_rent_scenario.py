@@ -15,12 +15,26 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RECEIPTS = ROOT / "extracted_data" / "interview_abac_monthly_receipts_master.csv"
 OUTPUT = ROOT / "data_private" / "manager_asking_rent_monthly_scenario.csv"
+TABLEAU_OUTPUT = ROOT / "data_private" / "tableau_rent_comparison_ready.csv"
+TABLEAU_DIFFERENCE_OUTPUT = ROOT / "data_private" / "tableau_contract_difference_ready.csv"
 FIELDS = [
     "billing_month",
     "new_tenant_asking_rent_thb",
     "scenario_period",
     "scenario_status",
     "scenario_note",
+]
+TABLEAU_FIELDS = [
+    "month_start",
+    "rent_type",
+    "rent_thb",
+    "scenario_period",
+]
+TABLEAU_DIFFERENCE_FIELDS = [
+    "month_start",
+    "contract_price_difference_thb",
+    "price_status",
+    "scenario_period",
 ]
 
 
@@ -76,12 +90,64 @@ def main() -> None:
             "scenario_note": note,
         })
 
+    tableau_rows = []
+    tableau_difference_rows = []
+    for row in scenario_rows:
+        # January 2023 is a partial receipt period, so keep Tableau aligned with
+        # the full-contract comparison query, which starts in February 2023.
+        if row["billing_month"] < "2023-02":
+            continue
+        month_start = f"{row['billing_month']}-01"
+        tableau_rows.extend([
+            {
+                "month_start": month_start,
+                "rent_type": "Your fixed contract",
+                "rent_thb": 6500,
+                "scenario_period": row["scenario_period"],
+            },
+            {
+                "month_start": month_start,
+                "rent_type": "New-tenant asking scenario",
+                "rent_thb": row["new_tenant_asking_rent_thb"],
+                "scenario_period": row["scenario_period"],
+            },
+        ])
+        difference = row["new_tenant_asking_rent_thb"] - 6500
+        price_status = (
+            "Contract cheaper"
+            if difference > 0
+            else "Promotion cheaper"
+            if difference < 0
+            else "Same price"
+        )
+        tableau_difference_rows.append({
+            "month_start": month_start,
+            "contract_price_difference_thb": difference,
+            "price_status": price_status,
+            "scenario_period": row["scenario_period"],
+        })
+
     OUTPUT.parent.mkdir(exist_ok=True)
     with OUTPUT.open("w", encoding="utf-8", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(scenario_rows)
+    with TABLEAU_OUTPUT.open("w", encoding="utf-8", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=TABLEAU_FIELDS, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(tableau_rows)
+    with TABLEAU_DIFFERENCE_OUTPUT.open("w", encoding="utf-8", newline="") as file:
+        writer = csv.DictWriter(
+            file, fieldnames=TABLEAU_DIFFERENCE_FIELDS, lineterminator="\n"
+        )
+        writer.writeheader()
+        writer.writerows(tableau_difference_rows)
     print(f"Wrote {len(scenario_rows)} monthly manager-rent scenario rows to {OUTPUT}")
+    print(f"Wrote {len(tableau_rows)} Tableau-ready rows to {TABLEAU_OUTPUT}")
+    print(
+        f"Wrote {len(tableau_difference_rows)} Tableau difference rows to "
+        f"{TABLEAU_DIFFERENCE_OUTPUT}"
+    )
 
 
 if __name__ == "__main__":

@@ -12,6 +12,11 @@ screenshots_mmp_2023-now/
 # Keep source-derived exchange-rate values local until source-use guidance is received.
 data_public/myanmar_market_price_monthly_summary.csv
 
+# Tableau packages embed extracts and local connection metadata.
+*.twb
+*.twbx
+*.hyper
+
 # Python, Jupyter, and operating-system artifacts.
 __pycache__/
 *.py[cod]
