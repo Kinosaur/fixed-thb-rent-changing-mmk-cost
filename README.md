@@ -28,14 +28,12 @@ Excel · DuckDB SQL · Tableau Public · Python (data preparation)
 ## Repository map
 
 - [`data_public/`](data_public/) — reviewed, anonymized monthly aggregates.
-- [`analytics/`](analytics/) — repeatable preparation scripts; see its README for data-boundary details.
+- [`analytics/`](analytics/) — repeatable preparation scripts.
 - [`sql/`](sql/) — four SQL practice queries covering rent, utilities, contract scenario, and trends.
-- [`docs/`](docs/) — metric definitions, methodology, and learning notes.
-- [`portfolio/`](portfolio/) — the public case-study outline.
 
 ## Privacy
 
-The Tableau workbook and all raw evidence are intentionally excluded from Git. Tableau is the public presentation layer; this repository contains code, documentation, and public-safe aggregates only.
+The Tableau workbook and all raw evidence are intentionally excluded from Git. Tableau is the public presentation layer; this repository contains only code and public-safe aggregates.
 
 ## Next step
 
